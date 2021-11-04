@@ -13,4 +13,8 @@
     <PackageReference Include="coverlet.collector" Version="3.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BigMamaUML3(Hannibal)\BigMamaUML3(Hannibal).csproj" />
+  </ItemGroup>
+
 </Project>
