@@ -23,17 +23,18 @@ namespace BigMamaUML3_Hannibal_
 
         public IMenuItem Search(int number)
         {
-            throw new NotImplementedException();
+            return _items.First(x => x.Number == number);
         }
 
         public void Delete(int number)
         {
-            throw new NotImplementedException();
+            _items.Remove(Search(number));
         }
 
         public void PrintPizzasMenu()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(string.Join(
+                "\n", from item in _items where item.Type == MenuType.Pizza select item.PrintInfo()));
         }
 
         public void PrintBeveragesMenu()
