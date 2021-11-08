@@ -81,8 +81,7 @@ namespace TestProject1
             //act
             catalog.Add(new Beverage(1,"cola","it's fucking cola",30,MenuType.SoftDrink,true,false,false));
 
-            Action AddWithSameNumber = () =>
-                catalog.Add(new Pizza(1, "pizza", "IDK", 60, MenuType.Pizza, false, false, true));
+            void AddWithSameNumber() => catalog.Add(new Pizza(1, "pizza", "IDK", 60, MenuType.Pizza, false, false, true));
 
             //assert
             Assert.ThrowsException<MenuItemNumberExist>(AddWithSameNumber);

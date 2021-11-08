@@ -70,7 +70,7 @@ namespace BigMamaUML3_Hannibal_
 
         public void Update(int number, IMenuItem theMenuItem)
         {
-            if (theMenuItem.Number == number)
+            if (theMenuItem.Number == number && _items.ContainsKey(number))
             {
                 Delete(number);
                 Add(theMenuItem);
@@ -79,12 +79,18 @@ namespace BigMamaUML3_Hannibal_
 
         public List<IMenuItem> FindAllVegan(MenuType type)
         {
-            return (from item in _items.Values where item.IsVegan select item).ToList();
+            return (from item in _items.Values
+                where item.Type == type
+                where item.IsVegan 
+                select item).ToList();
         }
 
         public List<IMenuItem> FindAllOrganic(MenuType type)
         {
-            return (from item in _items.Values where item.IsOrganic select item).ToList();
+            return (from item in _items.Values 
+                where item.Type == type
+                where item.IsOrganic 
+                select item).ToList();
         }
 
         public IMenuItem MostExpensiveMenuItem()
